@@ -2,14 +2,21 @@
     <channel>
         <title><![CDATA[Yates, Party of 5]]></title>
         <description><![CDATA[Yates, Party of 5]]></description>
-        <link>http://github.com/dylang/node-rss</link>
+        <link>https://thegrid.ai/yates-party-of-5/</link>
         <generator>The Grid</generator>
-        <lastBuildDate>Sun, 13 Dec 2015 23:23:40 GMT</lastBuildDate>
-        <atom:link href="undefinedrss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 13 Dec 2015 23:24:27 GMT</lastBuildDate>
+        <atom:link href="https://thegrid.ai/yates-party-of-5/rss.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Kenna and Buddy]]></title>
+            <description><![CDATA[<article><h1>Kenna and Buddy</h1><img src="https://s3-us-west-2.amazonaws.com/the-grid-img/p/2e19b88bc1d7b1a4d6dc1ecbf4c00252a47133f0.png"></article>]]></description>
+            <link>https://thegrid.ai/yates-party-of-5/kenna-and-buddy/index.html</link>
+            <guid isPermaLink="false">27eb8e5a-473c-4ea9-9bf5-66b7c0488160</guid>
+            <pubDate>Sun, 13 Dec 2015 23:23:31 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Josiah riding Buddy]]></title>
             <description><![CDATA[<article><h1>Josiah riding Buddy</h1><img src="https://s3-us-west-2.amazonaws.com/the-grid-img/p/34489dc611a155a4858e5782a4e8d9fbb18698c1.png"></article>]]></description>
-            <link>undefinedjosiah-riding-buddy/index.html</link>
+            <link>https://thegrid.ai/yates-party-of-5/josiah-riding-buddy/index.html</link>
             <guid isPermaLink="false">d45169d1-f5ee-4e9d-9bf2-a6d9e48721d4</guid>
             <pubDate>Sun, 13 Dec 2015 23:23:31 GMT</pubDate>
         </item>
