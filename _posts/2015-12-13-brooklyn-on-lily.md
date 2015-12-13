@@ -1,12 +1,12 @@
 ---
 description: ''
 author: []
-datePublished: '2015-12-13T23:23:31.295Z'
+datePublished: '2015-12-13T23:29:28.780Z'
 publisher:
   domain: ''
   name: ''
 title: Brooklyn on Lily
-dateModified: '2015-12-13T23:23:01.714Z'
+dateModified: '2015-12-13T23:23:31.295Z'
 sourcePath: _posts/2015-12-13-brooklyn-on-lily.md
 published: true
 inFeed: true
