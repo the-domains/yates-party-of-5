@@ -1,12 +1,12 @@
 ---
 description: ''
 author: []
-datePublished: '2015-12-13T23:23:31.274Z'
+datePublished: '2015-12-14T21:10:53.352Z'
 publisher:
   domain: ''
   name: ''
 title: Kenna and Buddy
-dateModified: '2015-12-13T23:20:43.076Z'
+dateModified: '2015-12-13T23:23:31.274Z'
 sourcePath: _posts/2015-12-13-kenna-and-buddy.md
 published: true
 inFeed: true
