@@ -1,0 +1,26 @@
+collections:
+  - index:
+      path: /
+      number: 15
+      paginate: true
+      navigable: true
+    permalink:
+      path: '/:title/'
+    feed:
+      path: /rss.xml
+      format: rss
+      number: 10
+typography_spectrum: 0.2003222
+color:
+  saturation: 0.5171858
+  brandStrength: 0.1470488
+  lightness: 0.66971
+  brandColors:
+    - '#9D2D3C'
+    - '#DDE4DD'
+    - '#BCAB47'
+    - '#6B574B'
+    - '#160600'
+  rhythmicContrast: 0.9519842
+layout_spectrum: 1
+name: 'Yates, Party of 5'
