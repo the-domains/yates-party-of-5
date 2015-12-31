@@ -1,3 +1,7 @@
+name: 'Yates, Party of 5'
+favicon: null
+layout_spectrum: 0.00492
+typography_spectrum: 0.2003222
 collections:
   - index:
       path: /
@@ -10,17 +14,27 @@ collections:
       path: /rss.xml
       format: rss
       number: 10
-typography_spectrum: 0.2003222
+cta:
+  domain: null
+  bucket: null
+  version: null
+analytics:
+  google: null
+  facebook: null
+  twitter: null
+opengraph:
+  image: null
+  type: null
+  appId: null
 color:
-  saturation: 0.5171858
-  brandStrength: 0.1470488
-  lightness: 0.66971
   brandColors:
     - '#9D2D3C'
     - '#DDE4DD'
     - '#BCAB47'
     - '#6B574B'
     - '#160600'
+  brandStrength: 0.1470488
+  lightness: 0.66971
+  saturation: 0.5171858
   rhythmicContrast: 0.9519842
-layout_spectrum: 1
-name: 'Yates, Party of 5'
+purpose: []
