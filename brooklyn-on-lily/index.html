@@ -1,4 +1,4 @@
-<!DOCTYPE HTML><html class="exporting wf-loading"><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Brooklyn on Lily - Yates, Party of 5</title><link href="../rss.xml" title="Yates, Party of 5 feed" rel="alternate" type="application/rss+xml"/><meta name="generator" content="The Grid taylor/0.16.25"><meta name="the-grid-solution" content="7591f5a6-52ce-46a3-9a23-bf02838e0f54"><style href="./css/scale/mini.css" media="(max-width: 19.9376em)" rel="stylesheet">@media (max-width: 15.625em){html{font-size:3.09375em !important}}
+<!DOCTYPE HTML><html class="exporting wf-loading"><head><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/><title>Brooklyn on Lily - Yates, Party of 5</title><link href="../rss.xml" title="Yates, Party of 5 feed" rel="alternate" type="application/rss+xml"/><meta name="generator" content="The Grid taylor/0.17.3"><meta name="the-grid-solution" content="4c378100-cf60-451d-bc1d-1f7d7bb44ff7"><style href="./css/scale/mini.css" media="(max-width: 19.9376em)" rel="stylesheet">@media (max-width: 15.625em){html{font-size:3.09375em !important}}
 @media (min-width: 15.6875em)and (max-width: 15.75em){	html{font-size:3.28125em !important}}
 @media (min-width: 15.8125em)and (max-width: 16.25em){	html{font-size:3.375em !important}}
 @media (min-width: 16.3125em)and (max-width: 16.6875em){html{font-size:3.46875em !important}}
@@ -202,6 +202,14 @@ body {
 }
 .stack {
   z-index: 1;
+  transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+}
+.group,
+.aside,
+.decoration {
+  transition: transform 0.3s ease-out;
+  -webkit-transition: -webkit-transform 0.3s ease-out;
 }
 picture {
   display: inline-block;
@@ -250,6 +258,9 @@ a:active {
   transition: color 0.1s ease-in, background-color 0.1s ease-out;
   -webkit-transition: color 0.1s ease-in, background-color 0.1s ease-out;
 }
+a.aside {
+  display: inline-block;
+}
 html.exporting a {
   transition: none;
 }
@@ -259,11 +270,21 @@ html.exporting a {
 .media > a {
   display: inline-block;
 }
+.media iframe {
+  transition: 0.3s opacity ease-in;
+  -webkit-transition: 0.3s opacity ease-in;
+}
 h1 a,
 h2 a,
 h3 a {
   font-weight: inherit;
   letter-spacing: inherit;
+}
+a {
+  -webkit-box-decoration-break: clone;
+  -ms-box-decoration-break: clone;
+  -moz-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .text-decoration {
   -webkit-box-decoration-break: clone;
@@ -277,36 +298,50 @@ h3 a {
   margin-left: 1.5em;
 }
 .decoration {
-  position: relative;
   pointer-events: none;
+}
+.svg {
+  position: relative;
   background-color: currentColor;
 }
-.decoration > svg {
+.svg > svg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.decoration.connector > svg {
+.svg.connector > svg {
   width: 109%;
   height: 109%;
   margin-left: -2%;
 }
-.decoration path,
-.decoration ellipse,
-.decoration rect,
-.decoration polygon,
-.decoration circle {
+.svg path,
+.svg ellipse,
+.svg rect,
+.svg polygon,
+.svg circle {
   fill: currentColor;
 }
-.decoration mpath,
-.decoration line,
-.decoration polyline {
+.svg mpath,
+.svg line,
+.svg polyline {
   stroke: currentColor;
 }
-.svg.decoration {
+.svg {
   background-color: transparent;
+}
+.revealed .play.svg:after {
+  display: block;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -20px;
+  margin-left: -20px;
+  background-color: currentColor;
+  content: "";
 }
 .colors-style-aside-border .publisher,
 .colors-style-aside-border .author {
@@ -440,7 +475,8 @@ ul {
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img{height: 3.424rem; width: 4.564rem; position: absolute; top: 0rem; left: 0rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual{opacity: 1; z-index: 2; font-size: 0.164rem; line-height: 0.244rem; height: 1.164rem; width: 4.564rem; position: absolute; top: 3.664rem; left: 0.124rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline{font-size: 0.524rem; line-height: 0.684rem; width: 4.084rem; position: absolute; left: 0.244rem; top: 0.244rem;}
-#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); color: rgb(122, 79, 63); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical :hover.media.cover { color: rgb(246, 243, 238); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline { color: rgb(67, 43, 35); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline a:hover { color: rgb(62, 45, 40); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 a { color: rgb(122, 79, 63); }
@@ -503,7 +539,8 @@ display: none;
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img{height: 5.134rem; width: 6.844rem; position: absolute; top: -0.164rem; left: 0rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual{opacity: 1; z-index: 2; font-size: 0.164rem; line-height: 0.244rem; height: 1.404rem; width: 6.844rem; position: absolute; top: 5.164rem; left: 0.184rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline{font-size: 0.524rem; line-height: 0.684rem; width: 6.124rem; position: absolute; left: 0.364rem; top: 0.364rem;}
-#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); color: rgb(122, 79, 63); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical :hover.media.cover { color: rgb(246, 243, 238); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline { color: rgb(67, 43, 35); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline a:hover { color: rgb(62, 45, 40); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 a { color: rgb(122, 79, 63); }
@@ -566,7 +603,8 @@ display: none;
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img{height: 3.614rem; width: 4.814rem; position: absolute; top: 0rem; left: 0rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual{opacity: 1; z-index: 2; font-size: 0.164rem; line-height: 0.244rem; width: 4.804rem; height: 3.614rem; position: absolute; top: 1.804rem; left: 4.804rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline{font-size: 0.284rem; line-height: 0.374rem; width: 3.844rem; position: absolute; left: 0.484rem; top: 1.624rem;}
-#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); color: rgb(122, 79, 63); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical :hover.media.cover { color: rgb(246, 243, 238); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline { color: rgb(67, 43, 35); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline a:hover { color: rgb(62, 45, 40); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 a { color: rgb(122, 79, 63); }
@@ -629,7 +667,8 @@ display: none;
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img{height: 5.414rem; width: 7.214rem; position: absolute; top: 0rem; left: 0rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual{opacity: 1; z-index: 2; font-size: 0.164rem; line-height: 0.244rem; width: 7.204rem; height: 5.414rem; position: absolute; top: 1.134rem; left: 7.204rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline{font-size: 0.284rem; line-height: 0.374rem; width: 5.764rem; position: absolute; left: 0.724rem; top: 2.524rem;}
-#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); color: rgb(122, 79, 63); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical :hover.media.cover { color: rgb(246, 243, 238); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline { color: rgb(67, 43, 35); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline a:hover { color: rgb(62, 45, 40); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 a { color: rgb(122, 79, 63); }
@@ -692,7 +731,8 @@ display: none;
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img{height: 6.754rem; width: 9rem; position: absolute; top: 0rem; left: 0rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual{opacity: 1; z-index: 2; font-size: 0.204rem; line-height: 0.304rem; width: 9rem; height: 6.754rem; position: absolute; top: 2.424rem; left: 9rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline{font-size: 0.354rem; line-height: 0.464rem; width: 7.204rem; position: absolute; left: 0.904rem; top: 3.154rem;}
-#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); color: rgb(122, 79, 63); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical :hover.media.cover { color: rgb(246, 243, 238); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline { color: rgb(67, 43, 35); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline a:hover { color: rgb(62, 45, 40); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 a { color: rgb(122, 79, 63); }
@@ -755,7 +795,8 @@ display: none;
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img{height: 6.764rem; width: 9.014rem; position: absolute; top: 0rem; left: 0rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual{opacity: 1; z-index: 2; font-size: 0.154rem; line-height: 0.234rem; width: 9rem; height: 6.764rem; position: absolute; top: 1.634rem; left: 9rem;}
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline{font-size: 0.274rem; line-height: 0.354rem; width: 7.204rem; position: absolute; left: 0.914rem; top: 3.214rem;}
-#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical > .media.cover { background-image: linear-gradient(rgb(67, 43, 35), rgb(246, 243, 238)); color: rgb(122, 79, 63); }
+#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.graphical :hover.media.cover { color: rgb(246, 243, 238); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline { color: rgb(67, 43, 35); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 .group.textual > .title.headline a:hover { color: rgb(62, 45, 40); }
 #u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211#u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211 a { color: rgb(122, 79, 63); }
@@ -789,7 +830,7 @@ wbr.w1800{ display: block }
  #u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-3 {
 display: none;
 }
-}</style></head><body><div class="layout-system rust mobile" id="page-64d6cfa3-7ed1-4eaa-b014-53bdccae4345"><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_cover w_media w_leader w_decoration w_trailer w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_separator w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles layout one i first_layout last_layout feed layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-3-l-one"></div><style id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-color">body{background-color: rgba(222, 213, 163, 1)}</style></section><article subject="panel" class="col-1 export-linebreaks not_decorated flow_vertical color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall font_size_small panel stack heading i first_panel last_panel w_headline w_title w_decoration w_short_headline w_short_title stack heading" itemid="u-page-nav" itemtype="nav" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-nav"><div kind="group" index="heading" class="group heading group heading" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-nav-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-nav-g-heading-t-headline"><a class="text-decoration" href="../index.html" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-nav-g-heading-t-headline-a">Yates, Party of 5</a></h1></div></article><article subject="stack" class="col-1 export-linebreaks line_padding_aside_inside text_width_wider not_decorated group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full aspect_natural stack graphical_textual ii first_stack last_stack graphical textual w_cover w_media w_decoration media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_short_headline w_short_title stack graphical_textual" itemid="5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211" itemtype="article" diff_index="7" index="graphical_textual" kind="stack" score="5.5" missed="0.5" tag="article" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211"><div kind="group" index="graphical" class="group graphical group graphical" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical"><a kind="media" index="cover" class="vfld media cover vfld-leader vfld-trailer media cover" specificity="0.25" itemprop="cover" max-width="4032" max-height="3024" href="https://s3-us-west-2.amazonaws.com/the-grid-img/p/1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover"><picture id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img" class=""><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/349fb4b51f612b5c37c30784fdb4a596/passthrough.png?height=675&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=900, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/fd1e1fda3d9c7d946242583905cc7618/passthrough.png?height=1350&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=1800 2x" media="(min-width: 1441px) and (min-width: 1441px) and (max-width: 1799px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/746dcf0503749f677914c5968c6373b1/passthrough.png?height=676&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=901, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/1b2d16efcc33250bb83f38cc97e2d12e/passthrough.png?height=1352&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=1802 2x" media="(min-width: 1441px) and (min-width: 1800px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/650f09abfa1cec16eb42f50854da592d/passthrough.png?height=361&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=481, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/32884ae493bc7548b927d4c31f68a6e9/passthrough.png?height=722&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=962 2x" media="(min-width: 721px) and (min-width: 721px) and (max-width: 960px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/5d3c1fb61c6fc784e87ddc68ebcdd4ba/passthrough.png?height=541&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=721, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/87aa10b867baccb63c843f6d1cb7f4aa/passthrough.png?height=1082&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=1442 2x" media="(min-width: 721px) and (min-width: 961px) and (max-width: 1440px)" /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/147adab3ba9bb2639b7d03a734b10f16/passthrough.png?height=342&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=456, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/d15b86c844b73ab7205e60f06cb0362d/passthrough.png?height=684&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=912 2x" media="(min-width: 1px) and (max-width: 480px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6f94d17df979abc2c49256fe8ff1260d/passthrough.png?height=513&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=684, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/dd3d1338e350ee9d8373e069eb648bcc/passthrough.png?height=1026&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=1368 2x" media="(min-width: 1px) and (min-width: 481px) and (max-width: 720px)" /><!--[if IE 9]></video><![endif]--><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  /></picture></a></div><div kind="group" index="textual" class="group textual group textual" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline"><span class="text-decoration" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline-span">Brooklyn on Lily</span></h1></div></article><article subject="panel" class="col-1 export-linebreaks not_decorated flow_vertical color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall font_size_small panel stack heading i first_panel last_panel w_headline w_title w_decoration w_short_headline w_short_title stack heading" itemid="u-page-alternate" itemtype="alternate" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-alternate"><div kind="group" index="heading" class="group heading group heading" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-alternate-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-alternate-g-heading-t-headline"><a class="text-decoration" href="../rss.xml" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-alternate-g-heading-t-headline-a">Yates, Party of 5 feed</a></h1></div></article><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_cover w_media w_leader w_decoration w_trailer w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_separator w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles layout one i first_layout last_layout feed layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-3-l-one"></div><style id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-color">body{background-color: rgba(222, 213, 163, 1)}</style></section><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_cover w_media w_leader w_decoration w_trailer w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_separator w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles layout one i first_layout last_layout feed layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-3-l-one"></div><style id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-color">body{background-color: rgba(222, 213, 163, 1)}</style></section></div><script href="./client.js">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+}</style></head><body><div class="layout-system rust mobile" id="page-64d6cfa3-7ed1-4eaa-b014-53bdccae4345"><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_cover w_media w_leader w_decoration w_trailer w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_separator w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles layout one i first_layout last_layout feed layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-mobile-l-one-3-l-one"></div><style id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-color">body{background-color: rgba(222, 213, 163, 1)}</style></section><article subject="panel" class="col-1 export-linebreaks not_decorated flow_vertical color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall font_size_small panel stack heading i first_panel last_panel w_headline w_title w_decoration w_short_headline w_short_title stack heading" itemid="u-page-nav" itemtype="nav" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-nav"><div kind="group" index="heading" class="group heading group heading" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-nav-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-nav-g-heading-t-headline"><a class="text-decoration" href="../index.html" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-nav-g-heading-t-headline-a">Yates, Party of 5</a></h1></div></article><article subject="stack" class="col-1 export-linebreaks line_padding_aside_inside text_width_wider not_decorated group_h_align_none text_align_left flow_unreversed group_v_outset_none group_v_inset_small group_h_outset_none group_h_inset_small flow_vertical font_size_large color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_xsmall stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full aspect_natural stack graphical_textual ii first_stack last_stack graphical textual w_cover w_media w_decoration media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_short_headline w_short_title stack graphical_textual" itemid="5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211" itemtype="article" diff_index="8" index="graphical_textual" kind="stack" score="5.5" missed="0.5" tag="article" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211"><div kind="group" index="graphical" class="group graphical group graphical" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical"><a kind="media" index="cover" class="vfld media cover vfld-leader vfld-trailer media cover" specificity="0.25" itemprop="cover" max-width="4032" max-height="3024" href="https://s3-us-west-2.amazonaws.com/the-grid-img/p/1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover"><picture id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-graphical-m-cover-img" class=""><!--[if IE 9]><video style="display: none;"><![endif]--><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/349fb4b51f612b5c37c30784fdb4a596/passthrough.png?height=675&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=900, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/fd1e1fda3d9c7d946242583905cc7618/passthrough.png?height=1350&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=1800 2x" media="(min-width: 1441px) and (min-width: 1441px) and (max-width: 1799px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/746dcf0503749f677914c5968c6373b1/passthrough.png?height=676&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=901, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/1b2d16efcc33250bb83f38cc97e2d12e/passthrough.png?height=1352&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=1802 2x" media="(min-width: 1441px) and (min-width: 1800px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/650f09abfa1cec16eb42f50854da592d/passthrough.png?height=361&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=481, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/32884ae493bc7548b927d4c31f68a6e9/passthrough.png?height=722&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=962 2x" media="(min-width: 721px) and (min-width: 721px) and (max-width: 960px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/5d3c1fb61c6fc784e87ddc68ebcdd4ba/passthrough.png?height=541&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=721, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/87aa10b867baccb63c843f6d1cb7f4aa/passthrough.png?height=1082&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=1442 2x" media="(min-width: 721px) and (min-width: 961px) and (max-width: 1440px)" /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/147adab3ba9bb2639b7d03a734b10f16/passthrough.png?height=342&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=456, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/d15b86c844b73ab7205e60f06cb0362d/passthrough.png?height=684&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=912 2x" media="(min-width: 1px) and (max-width: 480px) " /><source srcset="https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/6f94d17df979abc2c49256fe8ff1260d/passthrough.png?height=513&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=684, https://imgflo.herokuapp.com/graph/vahj1ThiexotieMo/dd3d1338e350ee9d8373e069eb648bcc/passthrough.png?height=1026&input=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fthe-grid-img%2Fp%2F1e6d8e4ce17d25ee122e932dfc8cae750bfe0d61.png&width=1368 2x" media="(min-width: 1px) and (min-width: 481px) and (max-width: 720px)" /><!--[if IE 9]></video><![endif]--><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="  /></picture></a></div><div kind="group" index="textual" class="group textual group textual" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline"><span class="text-decoration" id="u-5b1fc3ab-95bf-4ee6-a16b-9d7c91b04211-g-textual-t-headline-span">Brooklyn on Lily</span></h1></div></article><article subject="panel" class="col-1 export-linebreaks not_decorated flow_vertical color_adjust_none color_styles_no_group_bg color_schema_default stack_transparency_off v_emphasis_none h_emphasis_none group_overlap_none stack_v_outset_none stack_v_inset_none stack_h_outset_none stack_h_inset_xsmall stack_h_align_center uninverted vertical collapsed full line_padding_aside_inside text_width_full group_h_align_none text_align_center flow_unreversed group_v_outset_none group_v_inset_none group_h_outset_none group_h_inset_xsmall font_size_small panel stack heading i first_panel last_panel w_headline w_title w_decoration w_short_headline w_short_title stack heading" itemid="u-page-alternate" itemtype="alternate" diff_index="2" index="heading" kind="stack" score="1.875" missed="0.125" tag="article" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-alternate"><div kind="group" index="heading" class="group heading group heading" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-alternate-g-heading"><h1 kind="title" index="headline" class="short short_headline short_title title headline vfld-leader vfld-trailer title headline" specificity="0.25" itemprop="title" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-alternate-g-heading-t-headline"><a class="text-decoration" href="../rss.xml" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-alternate-g-heading-t-headline-a">Yates, Party of 5 feed</a></h1></div></article><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_cover w_media w_leader w_decoration w_trailer w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_separator w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles layout one i first_layout last_layout feed layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-desktop-l-one-3-l-one"></div><style id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-color">body{background-color: rgba(222, 213, 163, 1)}</style></section><section kind="layout" style="position: relative" sequence="one" role="header" diff_index="0" index="one" class="layout one i first_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout header layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="feed" diff_index="0" index="one" class="layout one i w_cover w_media w_leader w_decoration w_trailer w_connector media_gte_narrow media_gte_half media_gte_wide media_gte_full media_landscape crop_true w_headline w_title w_separator w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-2"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_medias w_titles layout one i first_layout last_layout feed layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-2-l-one"></div></section><section kind="layout" style="position: relative" sequence="one" role="footer" diff_index="0" index="one" class="layout one i last_layout w_headline w_title w_separator w_decoration w_leader w_trailer w_icon w_short_headline w_short_title layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-3"><div kind="layout" style="position: relative" sequence="one" diff_index="0" index="one" class="colors-use-local w_titles layout one i first_layout last_layout footer layout one" id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-cinema-l-one-3-l-one"></div><style id="u-64d6cfa3-7ed1-4eaa-b014-53bdccae4345-color">body{background-color: rgba(222, 213, 163, 1)}</style></section></div><script href="./client.js">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*! Hammer.JS - v1.1.3 - 2014-05-20
  * http://eightmedia.github.io/hammer.js
  *
@@ -1316,9 +1357,11 @@ global.Hamburger = require('./hamburger');
 
 global.Highlighter = require('./highlighter');
 
+global.Player = require('./player');
+
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./animator":3,"./hamburger":4,"./highlighter":5,"./paginator":7,"hammerjs/hammer.min.js":1,"picturefill/dist/picturefill.min.js":2}],7:[function(require,module,exports){
+},{"./animator":3,"./hamburger":4,"./highlighter":5,"./paginator":7,"./player":8,"hammerjs/hammer.min.js":1,"picturefill/dist/picturefill.min.js":2}],7:[function(require,module,exports){
 var appendPage, mainpage, page, ref, ref1, urls;
 
 page = require('./reflow');
@@ -1419,7 +1462,192 @@ module.exports = function() {
 };
 
 
-},{"./reflow":8}],8:[function(require,module,exports){
+},{"./reflow":9}],8:[function(require,module,exports){
+var Player, Youtube, iframe, revealed, rgb2hex;
+
+iframe = null;
+
+Youtube = null;
+
+Player = function(id, src, width, height, color, bg) {
+  if (src.indexOf('youtube') > -1) {
+    src += '&color=white&theme=light&modestbranding=1';
+  }
+  src = src.replace('COLOR', color).replace('BG', bg);
+  if (location.protocol !== 'https:') {
+    src = src.replace('https:', 'http:');
+  }
+  iframe = document.createElement('iframe');
+  iframe.id = id;
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.src = src;
+  iframe.width = width;
+  iframe.height = height;
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.left = 0;
+  iframe.style.right = 0;
+  iframe.style.position = 'absolute';
+  iframe.style.opacity = 0.2;
+  iframe.onload = function() {
+    return iframe.style.opacity = 1;
+  };
+  return iframe;
+};
+
+revealed = null;
+
+Player.reveal = function(iframe) {
+  var diff, i, left, len, parent, play, ref, ref1, sibling, target, top, translateX, translateY;
+  while (target = (target || iframe).parentNode) {
+    if ((ref = target.classList) != null ? ref.contains('media') : void 0) {
+      if (target.parentNode.classList.contains('group')) {
+        parent = target.parentNode;
+      } else {
+        parent = target;
+      }
+      revealed = iframe;
+      play = parent.getElementsByClassName('play')[0];
+      left = target.offsetWidth - play.offsetLeft - play.offsetWidth;
+      top = -play.offsetTop;
+      play.style.webkitTransformOrigin = 'top right';
+      play.style.webkitTransform = 'translateX(' + left + 'px) translateY(' + top + 'px) scale(0.5)';
+      target.classList.add('revealed');
+      ref1 = parent.parentNode.childNodes;
+      for (i = 0, len = ref1.length; i < len; i++) {
+        sibling = ref1[i];
+        if (sibling.nodeType === 1 && sibling !== parent) {
+          translateX = translateY = null;
+          if ((diff = sibling.offsetLeft + sibling.offsetWidth - parent.offsetLeft) > 2 && parent.offsetLeft >= sibling.offsetLeft) {
+            translateX = -diff;
+          }
+          if ((diff = target.offsetLeft + target.offsetWidth - sibling.offsetLeft) > 2 && parent.offsetLeft <= sibling.offsetLeft) {
+            if (!translateX || Math.abs(diff) < Math.abs(translateX)) {
+              translateX = diff;
+            }
+          }
+          if ((diff = sibling.offsetTop + sibling.offsetHeight - parent.offsetTop) > 2 && parent.offsetTop >= sibling.offsetTop) {
+            translateY = -diff;
+          }
+          if ((diff = target.offsetTop + target.offsetHeight - sibling.offsetTop) > 2 && parent.offsetTop <= sibling.offsetTop) {
+            if (!translateY || Math.abs(diff) < Math.abs(translateY)) {
+              translateY = diff;
+            }
+          }
+          if (Math.abs(translateX) > Math.abs(translateY)) {
+            sibling.style.webkitTransform = 'translateY(' + translateY + 'px)';
+          } else {
+            sibling.style.webkitTransform = 'translateX(' + translateX + 'px)';
+          }
+          console.log(translateX, translateY, sibling);
+        }
+      }
+    }
+  }
+};
+
+Player.hide = function(iframe) {
+  var i, len, parent, play, ref, ref1, sibling;
+  while (parent = (parent || iframe).parentNode) {
+    if ((ref = parent.classList) != null ? ref.contains('revealed') : void 0) {
+      parent.classList.remove('revealed');
+      if (parent.parentNode.classList.contains('group')) {
+        parent = parent.parentNode;
+      }
+      play = parent.getElementsByClassName('play')[0];
+      play.style.webkitTransform = '';
+      ref1 = parent.parentNode.childNodes;
+      for (i = 0, len = ref1.length; i < len; i++) {
+        sibling = ref1[i];
+        sibling.style.webkitTransform = '';
+      }
+    }
+  }
+  return revealed = null;
+};
+
+window.addEventListener('resize', function() {
+  return setTimeout(function() {
+    return requestAnimationFrame(function() {
+      if (revealed) {
+        if (revealed.offsetWidth) {
+          return Player.reveal(revealed);
+        } else {
+          return Player.stop(revealed);
+        }
+      }
+    });
+  }, 10);
+});
+
+Player.stop = function(iframe) {
+  var old;
+  old = iframe;
+  iframe.style.opacity = 0;
+  setTimeout(function() {
+    var ref;
+    return (ref = old.parentNode) != null ? ref.removeChild(old) : void 0;
+  }, 300);
+  Player.hide(iframe);
+  return iframe = null;
+};
+
+document.addEventListener('click', function(e) {
+  var bg, color, header, parent, play, ref, ref1, results, styles, target;
+  target = e.target;
+  results = [];
+  while (target) {
+    if ((ref = target.classList) != null ? ref.contains('media') : void 0) {
+      if (play = target.getElementsByClassName('play')[0]) {
+        if ((iframe != null ? iframe.parentNode : void 0) === target) {
+          Player.stop(iframe);
+        } else {
+          if (iframe) {
+            Player.stop(iframe);
+          }
+          color = bg = null;
+          header = (ref1 = target.parentNode.parentNode.getElementsByClassName('title')[0]) != null ? ref1.firstChild : void 0;
+          parent = header || play;
+          while (parent) {
+            if (parent.nodeType === 1) {
+              styles = window.getComputedStyle(parent);
+              if (styles.color.indexOf('rgba') === -1 || !styles.color.match(/,\s*0\)/)) {
+                if (color == null) {
+                  color = styles.color;
+                }
+              }
+              if (styles['background-color'].indexOf('rgba') === -1 || !styles['background-color'].match(/,\s*0\)/)) {
+                if (bg == null) {
+                  bg = styles['background-color'];
+                }
+              }
+            }
+            parent = parent.parentNode;
+          }
+          iframe = Player(play.id + '-player', play.getAttribute('data-src'), play.getAttribute('data-width'), play.getAttribute('data-height'), rgb2hex(color), rgb2hex(bg));
+          target.appendChild(iframe);
+          Player.reveal(iframe);
+        }
+        e.preventDefault();
+        break;
+      }
+    }
+    results.push(target = target.parentNode);
+  }
+  return results;
+});
+
+rgb2hex = function(rgb) {
+  rgb = rgb.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+  if (rgb && rgb.length === 4) {
+    return ("0" + parseInt(rgb[1], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[2], 10).toString(16)).slice(-2) + ("0" + parseInt(rgb[3], 10).toString(16)).slice(-2);
+  }
+};
+
+window.exports = window.Player = Player;
+
+
+},{}],9:[function(require,module,exports){
 module.exports = {
   reflow: function(container) {
     var counter, heights, hidden, hole, holed, holes, i, id, ids, index, j, k, l, last, layout, layouts, len, len1, len2, len3, m, mutations, name, node, ref, ref1, ref2, stack, stacks;
@@ -1684,7 +1912,7 @@ module.exports = function(callback) {
   } else {
     protocol = '';
   }
-  url = protocol + "//cdn.thegrid.io/gss/gss-document/1.2.4/gss.document.parser.js";
+  url = protocol + "//cdn.thegrid.io/gss/gss-document/1.2.8/gss.document.parser.js";
   if (location.toString().indexOf('//localhost:8080') > -1) {
     return module.exports.load(protocol + "//localhost:8080/node_modules/gss-document/dist/gss.document.parser.js", callback, function() {
       return module.exports.load(url, callback);
